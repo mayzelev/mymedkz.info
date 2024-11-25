@@ -1,0 +1,104 @@
+@font-face {
+  font-style: normal;
+  font-weight: 300;
+  src: url(../assets/fonts/OpenSans-Light.ttf) format("truetype");
+  font-family: OpenSansLight;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 300;
+  src: url(../assets/fonts/OpenSans-LightItalic.ttf) format("truetype");
+  font-family: OpenSansLightItalic;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  src: url(../assets/fonts/OpenSans-Regular.ttf) format("truetype");
+  font-family: OpenSansRegular;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  src: url(../assets/fonts/OpenSans-RegularItalic.ttf) format("truetype");
+  font-family: OpenSansRegularItalic;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 600;
+  src: url(../assets/fonts/OpenSans-SemiBold.ttf) format("truetype");
+  font-family: OpenSansSemiBold;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 600;
+  src: url(../assets/fonts/OpenSans-SemiBoldItalic.ttf) format("truetype");
+  font-family: OpenSansSemiBoldItalic;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 700;
+  src: url(../assets/fonts/OpenSans-Bold.ttf) format("truetype");
+  font-family: OpenSansBold;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 700;
+  src: url(../assets/fonts/OpenSans-BoldItalic.ttf) format("truetype");
+  font-family: OpenSansBoldItalic;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 800;
+  src: url(../assets/fonts/OpenSans-ExtraBold.ttf) format("truetype");
+  font-family: OpenSansExtraBold;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 800;
+  src: url(../assets/fonts/OpenSans-ExtraBoldItalic.ttf) format("truetype");
+  font-family: OpenSansExtraBoldItalic;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 300;
+  src: url(../assets/fonts/SFProDisplay-Light.ttf) format("truetype");
+  font-family: SFLight;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  src: url(../assets/fonts/SFProDisplay-Regular.ttf) format("truetype");
+  font-family: SFRegular;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 700;
+  src: url(../assets/fonts/SFProDisplay-Bold.ttf) format("truetype");
+  font-family: SFBold;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  src: url(../assets/fonts/Comfortaa-Regular.ttf) format("truetype");
+  font-family: "Comfortaa Regular";
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 700;
+  src: url(../assets/fonts/Comfortaa-Bold.ttf) format("truetype");
+  font-family: "Comfortaa Bold";
+}
