@@ -27,7 +27,7 @@ export default function Header() {
                     </button>
                 </div>
             </section>
-            <section className="flex items-center px-5 pb-[95px] max-w-[1240px] mx-auto">
+            <section className="flex items-center px-5 pb-[35px] max-w-[1240px] mx-auto">
                 <img className="w-32 h-13 mx-auto" src={Logo} alt="Logo Gattex" />
             </section>
         </>

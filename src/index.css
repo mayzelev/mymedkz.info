@@ -3,7 +3,7 @@
 @tailwind utilities;
 @layer utilities {
     .language-switcher {
-        @apply flex items-center justify-center w-12 h-12 bg-blue-200 text-mainTextColor border-2 border-black rounded-tl-[16px] rounded-br-[16px] text-sm font-medium hover:bg-mainTextColor hover:text-white transition duration-300;
+        @apply flex items-center justify-center w-12 h-12 bg-blue-200 text-mainTextColor border border-solid border-gray-400 rounded-tl-[16px] rounded-br-[16px] text-sm font-medium hover:bg-mainTextColor hover:text-white transition duration-300;
     }
     .language-switcher-active {
         @apply text-white bg-mainTextColor;

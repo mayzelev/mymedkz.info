@@ -23,8 +23,8 @@ export default {
                 formInputColor: 'linear-gradient(102.76deg, #0097d7 0%, #008053 100%)'
             },
             fontFamily: {
-                sans: ['Arial', 'Halvetica', 'sans-serif'], // Додає шрифт Roboto
-                custom: ['"Open Sans"', 'sans-serif'] // Інший приклад
+                sans: ['Arial', 'Halvetica', 'sans-serif'],
+                custom: ['"Open Sans"', 'sans-serif']
             }
         }
     },

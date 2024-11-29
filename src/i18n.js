@@ -146,7 +146,12 @@ const resources = {
             ],
             nextPage: 'Далее',
             mandatoryFields: 'обязательные для заполнения поля',
-            noCitiesFound: 'Город не найден'
+            noCitiesFound: 'Город не найден',
+            // Step two
+            stepTwo: 'Шаг 2.',
+            therapeuticArea: 'Название терапевтической области',
+            selectArea: 'Выберите область',
+            therapeuticAreas: ['Гастроэнтерология', 'Гематология', 'Генетические заболевания', 'Иммунология', 'Онкология', 'Прочее']
         }
     },
     kz: {
@@ -155,6 +160,7 @@ const resources = {
             headerTextSecoundPart:
                 'Ғылыми-медициналық сұрағыңызға сараптамалық қолдау алу үшін төмендегі форманы толтыру жеткілікті. Жауап формада көрсетілген электрондық поштаңызға 3-10 жұмыс күні ішінде (сұрақтың қиындығына байланысты) жіберіледі.',
             stepOne: '1-ші қадам',
+            // PERSONAL DATA ENTRY FORM
             lastName: 'Тегі',
             enterLastName: 'Тегіңізді енгізіңіз',
             name: 'Аты',
@@ -163,6 +169,7 @@ const resources = {
             enterPatronymic: 'Әкеңіздің атын енгізіңіз',
             email: 'Электрондық пошта',
             enterEmail: 'Электрондық поштаңызды енгізіңіз',
+            // FORM IF A HEALTHCARE SPECIALIST
             healthcareSpecialist: 'Мен денсаулық сақтау маманымын',
             infoHealthcareSpecialist: 'Кейбір ақпараттар тек денсаулық сақтау мамандарына ғана беріледі',
             workPlace: 'Жұмыс орны',
@@ -289,7 +296,11 @@ const resources = {
             ],
             nextPage: 'Әрі қарай',
             mandatoryFields: 'міндетті түрде толтырылатын орындар',
-            noCitiesFound: 'Қала тізімде жоқ'
+            noCitiesFound: 'Қала тізімде жоқ',
+            // Step two
+            stepTwo: '2-ші қадам',
+            therapeuticArea: 'Терапевтикалық облыс атауы',
+            therapeuticAreas: ['Гастроэнтерология', 'Гематология', 'Генетикалық аурулар', 'Иммунология', 'Онкология', 'Басқа']
         }
     }
 };
