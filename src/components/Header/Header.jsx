@@ -11,7 +11,7 @@ export default function Header() {
     const isActive = (lang) => i18n.language === lang;
     return (
         <>
-            <section className="flex justify-end px-5 py-1">
+            <section className="flex justify-end px-5 translate-y-full">
                 <div className="flex gap-2">
                     <button
                         onClick={() => changeLanguage('ru')}
