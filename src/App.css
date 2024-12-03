@@ -3,7 +3,6 @@
 @import './styles/variables.css';
 
 body {
-  font-family: var(--primary-font), serif;
   scroll-behavior: smooth;
   font-size: 14px;
   line-height: 24px;

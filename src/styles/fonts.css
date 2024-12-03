@@ -2,13 +2,7 @@
   font-style: normal;
   font-weight: 300;
   src: url(../assets/fonts/OpenSans-Light.ttf) format("truetype");
-  font-family: OpenSansLight;
-}
-@font-face {
-  font-style: normal;
-  font-weight: 400;
-  src: url(../assets/fonts/verdana.ttf) format("truetype");
-  font-family: Verdana;
+  font-family: "OpenSansLight";
 }
 
 @font-face {
