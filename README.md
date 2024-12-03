@@ -1,8 +1,36 @@
-# React + Vite
+# mymedkz.info
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Technologies used
 
-Currently, two official plugins are available:
+-   [React 18.3.1](https://reactjs.org/)
+-   [Vite](https://vitejs.dev/) - build tool
+-   [Tailwindcss](https://tailwindcss.com/) - css
+-   [React Router](https://reactrouter.com/) - routing library
+-   [i18next](https://react.i18next.com/) - translations
+-   [Headlessui](https://headlessui.com/) - Unstyled, fully accessible UI components
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# How to run
+
+1. Clone the repository
+
+```
+https://github.com/mayzelev/mymedkz.info.git
+```
+
+2. Install dependencies
+
+```
+npm install
+```
+
+3. Run the application
+
+```
+npm run dev
+```
+
+4. Open the application in the browser
+
+```
+http://localhost:5173
+```
