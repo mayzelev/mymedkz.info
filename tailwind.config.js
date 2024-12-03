@@ -14,7 +14,10 @@ export default {
                 buttonBgColor: '#B7B7B7',
                 gradientInputStart: '#0097d7',
                 gradientInputFinish: '#008053',
-                selectTextColor: '#686868'
+                selectTextColor: '#686868',
+                btnBackColor: '#008053',
+                borderTextAreaColor: '#0097d7',
+                textColorSecondary: '#777272'
             },
             backgroundImage: {
                 formBackground: 'linear-gradient(90deg, #e6f4f7 0%, #e6f3f0 100%)'

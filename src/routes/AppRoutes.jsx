@@ -3,6 +3,7 @@ import DefaultLayout from '../components/Layout/DefaultLayout';
 import Form from '../components/Form/Form';
 
 import Agreement from '../components/Agreement/Agreement';
+import Success from '../components/Success/Success';
 
 const AppRoutes = () => {
     return (
@@ -16,6 +17,7 @@ const AppRoutes = () => {
                 }
             />
             <Route path="/agreement" element={<Agreement />} />
+            <Route path="/success" element={<Success />} />
 
             <Route path="*" element={<div>Page not found</div>} />
         </Routes>

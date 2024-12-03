@@ -5,7 +5,7 @@ export default function DefaultLayout({ children }) {
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
-            <main className=" bg-formBackground">{children}</main>
+            <main className="bg-formBackground flex-grow w-full py-[55px] px-0">{children}</main>
             <Footer />
         </div>
     );

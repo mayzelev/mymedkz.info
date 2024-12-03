@@ -1,12 +1,14 @@
 import Footer from '../Footer/Footer';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ');
 }
 
 export default function Agreement() {
-    const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(0);
+  const { t } = useTranslation();
     const tabs = [
         {
             name: 'Пользовательское соглашение и персональные данные',
@@ -323,7 +325,7 @@ export default function Agreement() {
             )
         },
         {
-            name: 'Пайдаланушы келісімі және дербес деректер',
+            name: 'Пайдаланушы келісімі және жеке деректер',
             content: (
                 <div className="flex flex-col gap-3 mb-9">
                     <p className="text-justify indent-8">
@@ -617,8 +619,8 @@ export default function Agreement() {
         <>
             <div className="w-full mx-auto ">
                 <h1 className="text-[1.6rem] leading-8 mb-0 font-bold uppercase text-black text-center py-3 border-t-4 border-b-[1px] border-solid border-t-borgerColor border-b-dividerColor">
-                    Пользовательское соглашение и <br />
-                    персональные данные
+                    {t('userAgree')} <br />
+                    {t('userAgree2')}
                 </h1>
 
                 <div className="flex space-x-1 rounded-xl bg-white-900/20 px-11 pb-6 pt-4">
