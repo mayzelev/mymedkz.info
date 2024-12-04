@@ -1,5 +1,5 @@
 import Footer from '../Footer/Footer';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 function classNames(...classes) {
@@ -7,21 +7,28 @@ function classNames(...classes) {
 }
 
 export default function Agreement() {
-  const [activeTab, setActiveTab] = useState(0);
-  const { t } = useTranslation();
+    const [activeTab, setActiveTab] = useState(0);
+    const { t, i18n } = useTranslation();
+
     const tabs = [
         {
             name: 'Пользовательское соглашение и персональные данные',
+            lang: 'ru',
             content: (
                 <div className="flex flex-col gap-3 mb-9 ">
                     <p className="text-justify indent-8">
                         Пожалуйста, внимательно ознакомьтесь с приведенными ниже правилами пользования сайтом&nbsp;
-                        <a href="https://mymedkz.info/">https://mymedkz.info/</a>&nbsp; (&laquo;Правила&raquo;).
+                        <a className="hover:text-mainTextColor" href="https://mymedkz.info/">
+                            https://mymedkz.info/
+                        </a>
+                        &nbsp; (&laquo;Правила&raquo;).
                     </p>
                     <p className="text-justify indent-8">
                         На этой странице описаны условия, регулирующие использование информационного портала&nbsp;
-                        <a href="https://mymedkz.info/">https://mymedkz.info/</a>&nbsp; (&laquo;Сайт&raquo;) пользователем Сайта
-                        (&laquo;Пользователь&raquo;).
+                        <a className="hover:text-mainTextColor" href="https://mymedkz.info/">
+                            https://mymedkz.info/
+                        </a>
+                        &nbsp; (&laquo;Сайт&raquo;) пользователем Сайта (&laquo;Пользователь&raquo;).
                     </p>
                     <p className="text-justify indent-8">
                         Пользователь обязан полностью ознакомиться с настоящими Правилами до момента регистрации на Сайте. Регистрация
@@ -326,16 +333,17 @@ export default function Agreement() {
         },
         {
             name: 'Пайдаланушы келісімі және жеке деректер',
+            lang: 'kz',
             content: (
                 <div className="flex flex-col gap-3 mb-9">
                     <p className="text-justify indent-8">
                         Төменде келтірілген
-                        <a href="https://mymedkz.info/">https://mymedkz.info/</a>&nbsp;сайтын пайдалану қағидаларымен
+                        <a className="hover:text-mainTextColor" href="https://mymedkz.info/"> https://mymedkz.info/</a>&nbsp;сайтын пайдалану қағидаларымен
                         (&laquo;Қағидалар&raquo;) мұқият танысып шығуыңызды өтінеміз.
                     </p>
                     <p className="text-justify indent-8">
                         Бұл парақшада сайтты пайдаланушының (&laquo;Пайдаланушы&raquo;)
-                        <a href="https://mymedkz.info/">https://mymedkz.info/</a>&nbsp;ақпараттық порталын (&laquo;Сайт&raquo;) пайдалануын
+                        <a className="hover:text-mainTextColor" href="https://mymedkz.info/"> https://mymedkz.info/</a>&nbsp;ақпараттық порталын (&laquo;Сайт&raquo;) пайдалануын
                         реттейтін шарттар сипатталған.
                     </p>
                     <p className="text-justify indent-8">
@@ -615,34 +623,44 @@ export default function Agreement() {
         }
     ];
 
+    const handleTabChange = (lang) => {
+        const tabIndex = tabs.findIndex((tab) => tab.lang === lang);
+
+        if (tabIndex !== -1) {
+            setActiveTab(tabIndex);
+            i18n.changeLanguage(lang);
+        } else {
+            console.error('Language not found in tabs:', lang);
+        }
+    };
+
     return (
         <>
-            <div className="w-full mx-auto ">
-                <h1 className="text-[1.6rem] leading-8 mb-0 font-bold uppercase text-black text-center py-3 border-t-4 border-b-[1px] border-solid border-t-borgerColor border-b-dividerColor">
+            <div className="w-full mx-auto text-textColorAgreement">
+                <h1 className="text-[1.6rem] leading-8 mb-0 font-sans font-bold uppercase text-black text-center py-3 border-t-4 border-b-[1px] border-solid border-t-borgerColor border-b-dividerColor">
                     {t('userAgree')} <br />
                     {t('userAgree2')}
                 </h1>
+                <div className="mx-auto my-0 max-w-[1240px]">
+                    <div className="flex space-x-1 rounded-xl bg-white-900/20 px-11 pb-6 pt-4 ">
+                        {tabs.map((tab, lang) => (
+                            <button
+                                key={lang}
+                                onClick={() => handleTabChange(tab.lang)}
+                                className={classNames(
+                                    'w-full rounded-tl-[5px] rounded-tr-[5px] text-black py-2.5 text-sm font-medium leading-5',
+                                    activeTab === lang
+                                        ? 'bg-backgroundColorTabs text-white shadow'
+                                        : 'text-white-100 hover:bg-backgroundColorTabs hover:text-white'
+                                )}
+                            >
+                                {tab.name}
+                            </button>
+                        ))}
+                    </div>
 
-                <div className="flex space-x-1 rounded-xl bg-white-900/20 px-11 pb-6 pt-4">
-                    {tabs.map((tab, index) => (
-                        <button
-                            key={index}
-                            onClick={() => setActiveTab(index)}
-                            className={classNames(
-                                'w-full rounded-tl-[5px] rounded-tr-[5px] text-black py-2.5 text-sm font-medium leading-5',
-
-                                activeTab === index
-                                    ? 'bg-backgroundColorTabs text-white shadow'
-                                    : 'text-white-100 hover:bg-backgroundColorTabs hover:text-white'
-                            )}
-                        >
-                            {tab.name}
-                        </button>
-                    ))}
+                    <div className="px-10">{tabs[activeTab].content}</div>
                 </div>
-
-                {/* Контент активної вкладки */}
-                <div className="px-10">{tabs[activeTab].content}</div>
             </div>
             <Footer />
         </>

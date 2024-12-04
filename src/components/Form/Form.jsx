@@ -8,7 +8,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function Form() {
     const [isCaptchaVerified, setCaptchaVerified] = useState(false);
-    const [showAdditionalFields, setShowAdditionalFields] = useState(false);
+
     const [query, setQuery] = useState('');
     const [selectedCity, setSelectedCity] = useState(null);
     const [step, setStep] = useState(1);
@@ -22,11 +22,14 @@ export default function Form() {
     const {
         control,
         register,
+        watch,
         handleSubmit,
+        setValue,
         formState: { errors, isValid }
     } = useForm({
         mode: 'onChange'
     });
+    const showHealthCareSpecialistFields = watch('isHealthCareSpecialist', false);
 
     const handleSubmitForm = async (data) => {
         try {
@@ -173,8 +176,7 @@ export default function Form() {
                                     <input
                                         type="checkbox"
                                         id="checkbox1"
-                                        {...register('isHealthcareSpecialist')}
-                                        onChange={(e) => setShowAdditionalFields(e.target.checked)}
+                                        {...register('isHealthCareSpecialist')}
                                         className="hidden peer "
                                     />
                                     <label
@@ -198,7 +200,7 @@ export default function Form() {
                                     <p className="text-secondaryTextColor text-[10px]">{t('infoHealthcareSpecialist')}</p>
                                 </label>
                             </div>
-                            {showAdditionalFields && (
+                            {showHealthCareSpecialistFields && (
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
                                         <label className="text-xs font-medium pl-5 text-mainTextColor uppercase">{t('workPlace')} *</label>
@@ -228,8 +230,9 @@ export default function Form() {
                                         <div className="mx-auto w-full h-[60px]">
                                             <Combobox
                                                 value={selectedCity}
-                                                onChange={(value) => {
-                                                    setSelectedCity(value);
+                                                onChange={(city) => {
+                                                    setSelectedCity(city);
+                                                    setValue('city', city, { shouldValidate: true }); // Оновлюємо значення форми
                                                 }}
                                                 onClose={() => setQuery('')}
                                             >
@@ -314,7 +317,8 @@ export default function Form() {
                                                     {...register('terapy', {
                                                         required: t('errorsRequired')
                                                     })}
-                                                    className="cursor-pointer w-full h-full rounded-full pl-5 font-medium text-base text-white placeholder-white bg-gradient-to-r from-gradientInputStart to-gradientInputFinish focus:outline-none z-40 relative"
+                                                    readOnly
+                                                    className=" cursor-pointer w-full h-full rounded-full pl-5 font-medium text-base text-white placeholder-white bg-gradient-to-r from-gradientInputStart to-gradientInputFinish focus:outline-none z-40 relative"
                                                     placeholder={t('selectArea')}
                                                     displayValue={(terapy) => terapy}
                                                 />
@@ -324,7 +328,7 @@ export default function Form() {
                                                 className={clsx(
                                                     'w-[calc(var(--input-width)-60px)] cursor-pointer rounded-b-2xl border-x-2 border-b-2 pt-4 pb-5 border-t-0 border-mainTextColor -translate-y-4 translate-x-6 bg-white  [--anchor-gap:var(--spacing-1)] empty:invisible ',
                                                     'transition duration-100 ease-in data-[leave]:data-[closed]:opacity-0 relative z-30',
-                                                    'max-h-[300px] h-auto overflow-y-auto'
+                                                    'max-h-[300px] h-auto overflow-y-auto read-only'
                                                 )}
                                             >
                                                 {therapeuticAreas && Object.keys(therapeuticAreas).length > 0 ? (
@@ -360,6 +364,7 @@ export default function Form() {
                                                             {...register('preparation', {
                                                                 required: t('errorsRequired')
                                                             })}
+                                                            readOnly
                                                             className="cursor-pointer w-full h-full rounded-full pl-5 font-medium text-base text-white placeholder-white bg-gradient-to-r from-gradientInputStart to-gradientInputFinish focus:outline-none z-20 relative"
                                                             placeholder={t('selectPreparetion')}
                                                             displayValue={(preparation) => preparation}
@@ -430,11 +435,11 @@ export default function Form() {
                                             render={({ field }) => (
                                                 <>
                                                     <label className="flex items-center space-x-2 text-[12px]">
-                                                        <input type="radio" {...field} value="yes" className="form-radio" />
+                                                        <input type="radio" {...field} value={t('yes')} className="form-radio" />
                                                         <span>{t('yes')}</span>
                                                     </label>
                                                     <label className="flex items-center space-x-2 text-[12px]">
-                                                        <input type="radio" {...field} value="no" className="form-radio" />
+                                                        <input type="radio" {...field} value={t('no')} className="form-radio" />
                                                         <span>{t('no')}</span>
                                                     </label>
                                                 </>
@@ -455,11 +460,11 @@ export default function Form() {
                                             render={({ field }) => (
                                                 <>
                                                     <label className="flex items-center space-x-2 text-[12px]">
-                                                        <input type="radio" {...field} value="yes" className="form-radio" />
+                                                        <input type="radio" {...field} value={t('yes')} className="form-radio" />
                                                         <span>{t('yes')}</span>
                                                     </label>
                                                     <label className="flex items-center space-x-2 text-[12px]">
-                                                        <input type="radio" {...field} value="no" className="form-radio" />
+                                                        <input type="radio" {...field} value={t('no')} className="form-radio" />
                                                         <span>{t('no')}</span>
                                                     </label>
                                                 </>
@@ -482,11 +487,11 @@ export default function Form() {
                                             render={({ field }) => (
                                                 <>
                                                     <label className="flex items-center space-x-2 text-[12px]">
-                                                        <input type="radio" {...field} value="yes" className="form-radio" />
+                                                        <input type="radio" {...field} value={t('yes')} className="form-radio" />
                                                         <span>{t('yes')}</span>
                                                     </label>
                                                     <label className="flex items-center space-x-2 text-[12px]">
-                                                        <input type="radio" {...field} value="no" className="form-radio" />
+                                                        <input type="radio" {...field} value={t('no')} className="form-radio" />
                                                         <span>{t('no')}</span>
                                                     </label>
                                                 </>
@@ -652,7 +657,6 @@ export default function Form() {
                 </div>
             </div>
 
-            
             <div className="fixed bottom-3 right-0">
                 <ReCAPTCHA sitekey="6LcDpeopAAAAALeeohaOOQfLiC_AOpq1NGm6ElYX" onChange={handleCaptchaChange} />
             </div>

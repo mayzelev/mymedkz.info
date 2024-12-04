@@ -17,7 +17,8 @@ export default {
                 selectTextColor: '#686868',
                 btnBackColor: '#008053',
                 borderTextAreaColor: '#0097d7',
-                textColorSecondary: '#777272'
+            textColorSecondary: '#777272',
+                textColorAgreement: '#3b3d42'
             },
             backgroundImage: {
                 formBackground: 'linear-gradient(90deg, #e6f4f7 0%, #e6f3f0 100%)'

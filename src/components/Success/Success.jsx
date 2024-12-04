@@ -7,7 +7,7 @@ export default function Success() {
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
-            <main className="bg-formBackground  my-auto mx-0">
+            <main className="bg-formBackground flex justify-center items-center my-auto mx-0">
                 <div className="py-[55px] px-[20px]">
                     <br />
                     <h2 className="text-[30px] lg:text-[56px] md:text-[30px]  leading-[1.35] font-sans text-mainTextColor font-bold m-0">
