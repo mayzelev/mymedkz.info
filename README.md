@@ -1,4 +1,5 @@
 # mymedkz.info
+Demo link: [DEMO](https://mayzelev.github.io/mymedkz.info/)
 
 # Technologies used
 
