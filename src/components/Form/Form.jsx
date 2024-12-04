@@ -56,7 +56,7 @@ export default function Form() {
         if (step === 1) {
             setStep(2);
             // потрібно буде змінити логіку, поки не працює каптча
-        } else if (!isCaptchaVerified) {
+        } else if (isCaptchaVerified) {
             handleSubmitForm(data);
         } else {
             console.log('Please verify the reCAPTCHA!');
@@ -409,7 +409,7 @@ export default function Form() {
                                             </label>
                                             <textarea
                                                 placeholder={t('enterQuestion')}
-                                                className="border-[2px] border-borderTextAreaColor placeholder:text-mainTextColor border-solid rounded-3xl px-[17px] py-[22px] text-base"
+                                                className="border-[2px] border-borderTextAreaColor text-mainTextColor placeholder:text-mainTextColor border-solid rounded-3xl px-[17px] py-[22px] text-base"
                                                 rows={7}
                                                 {...register('question', {
                                                     required: t('errorsRequired')
@@ -632,6 +632,8 @@ export default function Form() {
                             <div className="flex gap-10 pt-[55px]">
                                 <button
                                     type="submit"
+                                    data-sitekey="6LcDpeopAAAAALeeohaOOQfLiC_AOpq1NGm6ElYX"
+                                    data-callback="onSubmit"
                                     disabled={!isValid}
                                     className={clsx(
                                         'g-recaptcha w-fit font-normal leading-[1.4] text-[16px] md:text-[16px] lg:text-[22px] pt-[11px] px-[45px] pb-[15px] rounded-full transition-colors',

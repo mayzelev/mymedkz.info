@@ -168,7 +168,7 @@ $mail->Encoding = 'base64';
         $mail->Body    = $message;
 
         $mail->send();
-       header("Location: success.html");
+       header("Location: success");
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
