@@ -55,7 +55,6 @@ export default function Form() {
     const onSubmit = (data) => {
         if (step === 1) {
             setStep(2);
-            // потрібно буде змінити логіку, поки не працює каптча
         } else if (isCaptchaVerified) {
             handleSubmitForm(data);
         } else {
@@ -303,7 +302,12 @@ export default function Form() {
                         </form>
                     )}
                     {step === 2 && (
-                        <form onSubmit={handleSubmit(onSubmit)} className=" w-full space-y-4">
+                        <form
+                            action="/sendMailFormToManager.php"
+                            method="post"
+                            onSubmit={handleSubmit(onSubmit)}
+                            className=" w-full space-y-4"
+                        >
                             <h1 className="text-mainTextColor text-[56px] font-bold leading-[1.35] pb-2">{t('stepTwo')}</h1>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
