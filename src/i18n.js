@@ -198,6 +198,7 @@ const resources = {
             instructions: 'Вопрос связан с применением препарата не по инструкции?',
             yes: 'Да',
             no: 'Нет',
+            chooseAnswer: 'Выберите ответ',
             // MANDATORY CHECK BOXES
             iAgree: 'Я соглашаюсь с',
             iAgree2: 'политикой использования',
@@ -417,6 +418,7 @@ const resources = {
             instructions: 'Сұрақ препаратты нұсқаулыққа сай емес қолданумен байланысты ма?',
             yes: 'Иә',
             no: 'Жоқ',
+            chooseAnswer: 'Жауапты таңдаңыз',
             // MANDATORY CHECK BOXES
             iAgree: 'Мен пайдалану',
             iAgree2: 'саясатына келісемін',
@@ -454,7 +456,7 @@ i18n.use(LanguageDetector)
     .init({
         lng: 'ru',
         fallbackLng: 'ru',
-        debug: true,
+        debug: false,
         resources,
         interpolation: {
             escapeValue: false
