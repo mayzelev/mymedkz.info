@@ -42,7 +42,7 @@ export default function Form() {
                 import.meta.env.VITE_TEMPLAYE_ID,
                 {
                     ...data,
-                    token: isCaptchaVerified 
+                    token: isCaptchaVerified
                 },
                 import.meta.env.VITE_PUBLIC_KEY_EMAIL_JS
             );
@@ -637,9 +637,9 @@ export default function Form() {
 
                                     <label className="ml-2 pb-4 text-[16px] leading-[1.35] text-selectTextColor -translate-y-1">
                                         {t('iAgreePresonal')}{' '}
-                                        <Link to="/agreement" target="_blank" className="underline">
+                                        <a onClick={() => navigate('/agreement')} target="_blank" className="underline cursor-pointer">
                                             {t('iAgreePresonal2')}
-                                        </Link>{' '}
+                                        </a>{' '}
                                         *
                                     </label>
                                 </div>
