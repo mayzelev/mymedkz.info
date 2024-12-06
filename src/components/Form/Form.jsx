@@ -73,6 +73,7 @@ export default function Form() {
 
     const handleBack = () => {
         setStep((prevStep) => Math.max(prevStep - 1, 1));
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     const filteredCities =
@@ -296,6 +297,7 @@ export default function Form() {
                                 <div className="pt-6">
                                     <button
                                         disabled={!isValid}
+                                        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                                         className={clsx(
                                             'g-recaptcha w-fit font-normal leading-[1.4] text-[16px] md:text-[16px] lg:text-[22px] pt-[11px] px-[45px] pb-[15px] rounded-full transition-colors',
                                             {
@@ -637,13 +639,22 @@ export default function Form() {
 
                                     <label className="ml-2 pb-4 text-[16px] leading-[1.35] text-selectTextColor -translate-y-1">
                                         {t('iAgreePresonal')}{' '}
-                                        <a onClick={() => navigate('/agreement')} target="_blank" className="underline cursor-pointer">
+                                        <Link
+                                            target="_blank"
+                                            to={'/agreement'}
+                                            rel="noopener noreferrer"
+                                            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                                            className="underline"
+                                        >
                                             {t('iAgreePresonal2')}
-                                        </a>{' '}
+                                        </Link>{' '}
                                         *
                                     </label>
                                 </div>
-                                <div className="flex gap-10 pt-[55px]">
+                                <div className="bottom-3 right-0 ">
+                                    <ReCAPTCHA sitekey={import.meta.env.VITE_APP_SITE_KEY} onChange={handleCaptchaChange} />
+                                </div>
+                                <div className="flex gap-3 sm:gap-3 md:gap-10 lg:gap-10 pt-[55px]">
                                     <button
                                         type="submit"
                                         disabled={!isCaptchaVerified}
@@ -664,10 +675,8 @@ export default function Form() {
                                     >
                                         {t('back')}
                                     </button>
-                                    <div className="bottom-3 right-0 ">
-                                        <ReCAPTCHA sitekey={import.meta.env.VITE_APP_SITE_KEY} onChange={handleCaptchaChange} />
-                                    </div>
                                 </div>
+
                                 <p className="text-[12px] pl-[22px] text-mainTextColor pt-2">* - {t('mandatoryFields')}</p>
                             </>
                         )}

@@ -1,10 +1,9 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import TakedaLogo from '../../assets/icons/takeda.svg';
 import { useTranslation } from 'react-i18next';
 
 export default function Footer({ formFooter = false }) {
     const { t } = useTranslation();
-    const navigate = useNavigate();
 
     return (
         <>
@@ -26,9 +25,15 @@ export default function Footer({ formFooter = false }) {
             <div className="w-auto flex flex-row items-center text-left pt-3 px-4 pb-10 bg-footerMainColor text-white text-sm justify-between">
                 <div className="flex flex-col gap-4">
                     <p className="font-bold text-[16px]">{t('footerLegalInformation')}</p>
-                    <a target="_blank" onClick={() => navigate('/agreement')} className="underline cursor-pointer hover:text-mainTextColor">
+                    <Link
+                        target="_blank"
+                        to={'/agreement'}
+                        rel="noopener noreferrer"
+                        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                        className="underline hover:text-mainTextColor"
+                    >
                         {t('footerPersonalDataProcessingPolicy')}
-                    </a>
+                    </Link>
                     <a href="https://accounts.takeda.com/privacy-notice/" target="_blank" className="underline hover:text-mainTextColor">
                         {t('footerPrivacyPolicy')}
                     </a>
