@@ -16,10 +16,10 @@ export default function Form() {
     const [selectedTherapeuticArea, setSelectedTherapeuticArea] = useState('');
     const [selectedDrug, setSelectedDrug] = useState('');
     const navigate = useNavigate();
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const cities = t('cities', { returnObjects: true });
     const therapeuticAreas = t('therapeuticAreas', { returnObjects: true });
-
+    const currentLanguage = i18n.language;
     const {
         control,
         register,
@@ -638,17 +638,37 @@ export default function Form() {
                                     </div>
 
                                     <label className="ml-2 pb-4 text-[16px] leading-[1.35] text-selectTextColor -translate-y-1">
-                                        {t('iAgreePresonal')}{' '}
-                                        <Link
-                                            target="_blank"
-                                            to={'/agreement'}
-                                            rel="noopener noreferrer"
-                                            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                                            className="underline"
-                                        >
-                                            {t('iAgreePresonal2')}
-                                        </Link>{' '}
-                                        *
+                                        <>
+                                            {currentLanguage === 'ru' ? (
+                                                <>
+                                                    {t('iAgreePersonl')}{' '}
+                                                    <Link
+                                                        target="_blank"
+                                                        to={'/agreement'}
+                                                        rel="noopener noreferrer"
+                                                        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                                                        className="underline"
+                                                    >
+                                                        {t('iAgreePerson2')}
+                                                    </Link>{' '}
+                                                    *
+                                                </>
+                                            ) : currentLanguage === 'kz' ? (
+                                                <>
+                                                    <Link
+                                                        target="_blank"
+                                                        to={'/agreement'}
+                                                        rel="noopener noreferrer"
+                                                        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                                                        className="underline"
+                                                    >
+                                                        {t('iAgreePersonl')}
+                                                    </Link>{' '}
+                                                    *{' '}
+                                                    {t('iAgreePerson2')}
+                                                </>
+                                            ) : null}
+                                        </>
                                     </label>
                                 </div>
                                 <div className="bottom-3 right-0 ">
