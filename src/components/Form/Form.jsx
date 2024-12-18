@@ -664,8 +664,8 @@ export default function Form() {
                                                     >
                                                         {t('iAgreePersonl')}
                                                     </Link>{' '}
-                                                    *{' '}
-                                                    {t('iAgreePerson2')}
+                                                    {' '}
+                                                    {t('iAgreePerson2')} *
                                                 </>
                                             ) : null}
                                         </>
